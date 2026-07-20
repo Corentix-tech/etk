@@ -14,7 +14,14 @@ export interface CloudinaryUploadResult {
  */
 export const uploadToCloudinary = async (
   localFilePath: string,
-  folder: 'products' | 'lookbook' | 'customisation-inspiration' | 'settings'
+  folder:
+  | 'products'
+  | 'lookbook'
+  | 'customisation-inspiration'
+  | 'settings'
+  | 'homepage/banner'
+  | 'homepage/section'
+  | 'homepage/video'
 ): Promise<CloudinaryUploadResult> => {
   try {
     const result = await cloudinary.uploader.upload(localFilePath, {

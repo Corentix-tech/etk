@@ -23,6 +23,7 @@ import customisationRoutes from "./routes/customisation.routes";
 import lookbookRoutes from "./routes/lookbook.routes";
 import settingsRoutes from "./routes/settings.routes";
 import dashboardRoutes from "./routes/dashboard.routes";
+import homepageRoutes from "./routes/homepage.routes";
 
 // Load environment variables
 dotenv.config();
@@ -77,6 +78,7 @@ app.use("/api/customisations", customisationRoutes);
 app.use("/api/lookbooks", lookbookRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/homepage", homepageRoutes);
 
 // Health Check Route
 app.get("/api/health", (req, res) => {

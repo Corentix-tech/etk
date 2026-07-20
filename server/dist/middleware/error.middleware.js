@@ -34,7 +34,7 @@ const errorMiddleware = (err, req, res, next) => {
         statusCode = 401;
         message = 'Firebase ID token has expired.';
     }
-    else if (err.code?.startsWith('auth/')) {
+    else if (typeof err.code === 'string' && err.code?.startsWith('auth/')) {
         statusCode = 401;
         message = 'Firebase authentication failed.';
     }

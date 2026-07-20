@@ -29,8 +29,9 @@ const authMiddleware = async (req, res, next) => {
         let role = 'CUSTOMER';
         if (userDoc.exists) {
             const userData = userDoc.data();
-            if (userData?.role === 'ADMIN') {
-                role = 'ADMIN';
+            const dbRole = userData?.role;
+            if (dbRole && ['SUPER_ADMIN', 'ADMIN', 'CONTENT_MANAGER', 'ORDER_MANAGER', 'DESIGNER', 'CUSTOMER'].includes(dbRole)) {
+                role = dbRole;
             }
         }
         // 5. Attach decoded user details to request object

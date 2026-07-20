@@ -42,7 +42,7 @@ export const errorMiddleware: ErrorRequestHandler = (
   } else if ((err as any).code === 'auth/id-token-expired') {
     statusCode = 401;
     message = 'Firebase ID token has expired.';
-  } else if ((err as any).code?.startsWith('auth/')) {
+  } else if (typeof (err as any).code === 'string' && (err as any).code?.startsWith('auth/')) {
     statusCode = 401;
     message = 'Firebase authentication failed.';
   }

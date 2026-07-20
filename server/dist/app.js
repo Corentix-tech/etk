@@ -25,6 +25,7 @@ const customisation_routes_1 = __importDefault(require("./routes/customisation.r
 const lookbook_routes_1 = __importDefault(require("./routes/lookbook.routes"));
 const settings_routes_1 = __importDefault(require("./routes/settings.routes"));
 const dashboard_routes_1 = __importDefault(require("./routes/dashboard.routes"));
+const homepage_routes_1 = __importDefault(require("./routes/homepage.routes"));
 // Load environment variables
 dotenv_1.default.config();
 // Create Express App
@@ -67,6 +68,7 @@ app.use("/api/customisations", customisation_routes_1.default);
 app.use("/api/lookbooks", lookbook_routes_1.default);
 app.use("/api/settings", settings_routes_1.default);
 app.use("/api/dashboard", dashboard_routes_1.default);
+app.use("/api/homepage", homepage_routes_1.default);
 // Health Check Route
 app.get("/api/health", (req, res) => {
     res.status(200).json({
